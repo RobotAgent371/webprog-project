@@ -1,0 +1,518 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    background: url('Rune.jpeg') no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+h2 {
+    background: rgba(255, 255, 255, 0.1);
+    border: 2px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(25px);
+    border-radius: 20px;
+    padding: 25px 40px;
+    margin-bottom: 40px;
+    text-align: center;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+    font-size: 42px;
+    color: #000000;
+    font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+    letter-spacing: 1px;
+}
+
+.pc-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 25px;
+    max-width: 1400px;
+    width: 100%;
+}
+
+.pc-box {
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    padding: 25px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.pc-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+}
+
+.pc-box:hover::before {
+    left: 100%;
+}
+
+.pc-box:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, .5);
+}
+
+.pc-box h3 {
+    font-size: 28px;
+    color: #000000;
+    font-weight: 700;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+.pc-box label {
+    display: block;
+    color: #000000;
+    font-size: 14px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+}
+
+select {
+    width: 100%;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, .3);
+    border-radius: 25px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 600;
+    outline: none;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 15px;
+}
+
+select:focus {
+    border-color: rgba(255, 255, 255, .6);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+select option {
+    background: rgba(255, 255, 255, 0.95);
+    color: #000000;
+    padding: 10px;
+}
+
+select option[value="Online"],
+select option:first-child {
+    background: rgba(46, 213, 115, 0.9);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+select option[value="Offline"],
+select option:last-child {
+    background: rgba(255, 71, 87, 0.9);
+    color: #ffffff;
+    font-weight: 700;
+}
+
+select:has(option[selected]:first-child),
+select[value="Online"] {
+    background: rgba(46, 213, 115, 0.3);
+    border-color: rgba(46, 213, 115, 0.6);
+}
+
+select:has(option[selected]:last-child),
+select[value="Offline"] {
+    background: rgba(255, 71, 87, 0.3);
+    border-color: rgba(255, 71, 87, 0.6);
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, .3);
+    border-radius: 25px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 600;
+    outline: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 15px;
+}
+
+input[type="text"]::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+input[type="text"]:focus {
+    border-color: rgba(255, 255, 255, .6);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+.timer {
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, .3);
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin: 20px 0;
+    position: relative;
+    z-index: 1;
+    font-size: 48px;
+    font-weight: 700;
+    color: #000000;
+    letter-spacing: 3px;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    position: relative;
+    z-index: 1;
+    color: #fff;
+    margin-right: 8px;
+    margin-bottom: 8px;
+}
+
+button:nth-of-type(1) {
+    background: rgba(52, 152, 219, 0.8);
+    border: 2px solid rgba(52, 152, 219, 1);
+}
+
+button:nth-of-type(1):hover {
+    background: rgba(52, 152, 219, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
+}
+
+button:nth-of-type(2) {
+    background: rgba(46, 213, 115, 0.8);
+    border: 2px solid rgba(46, 213, 115, 1);
+}
+
+button:nth-of-type(2):hover {
+    background: rgba(46, 213, 115, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(46, 213, 115, 0.4);
+}
+
+button:nth-of-type(3) {
+    background: rgba(255, 71, 87, 0.8);
+    border: 2px solid rgba(255, 71, 87, 1);
+}
+
+button:nth-of-type(3):hover {
+    background: rgba(255, 71, 87, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(255, 71, 87, 0.4);
+}
+
+button:active {
+    transform: translateY(0);
+}
+
+@media (max-width: 768px) {
+    .pc-container {
+        grid-template-columns: 1fr;
+    }
+    
+    h2 {
+        font-size: 32px;
+    }
+    
+    .timer {
+        font-size: 36px;
+    }
+}
+
+/* ===== SLIDING TAB MENU ===== */
+
+#tab-toggle {
+    position: fixed;
+    top: 30px;
+    left: 30px;
+    width: 55px;
+    height: 55px;
+    background: rgba(255, 255, 255, 0.15);
+    border: 2px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(20px);
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    font-weight: 700;
+    color: #000;
+    cursor: pointer;
+    z-index: 1100;
+    transition: all 0.3s ease;
+}
+
+#tab-toggle:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+/* Side panel */
+#side-tab {
+    position: fixed;
+    top: 0;
+    left: -320px;
+    width: 300px;
+    height: 100%;
+    padding: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-right: 2px solid rgba(255, 255, 255, .3);
+    backdrop-filter: blur(25px);
+    transition: left 0.35s ease;
+    z-index: 1099;
+}
+
+#side-tab.active {
+    left: 0;
+}
+
+#side-tab h3 {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 30px;
+    color: #000;
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.3);
+}
+
+#side-tab button {
+    width: 100%;
+    margin-bottom: 15px;
+    padding: 14px;
+    border-radius: 25px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+#side-tab button:first-of-type {
+    background: rgba(255, 71, 87, 0.8);
+    border: 2px solid rgba(255, 71, 87, 1);
+}
+
+#side-tab button:first-of-type:hover {
+    background: rgba(255, 71, 87, 1);
+    box-shadow: 0 5px 20px rgba(255, 71, 87, 0.4);
+}
+
+#side-tab button:last-of-type {
+    background: rgba(52, 152, 219, 0.8);
+    border: 2px solid rgba(52, 152, 219, 1);
+}
+
+#side-tab button:last-of-type:hover {
+    background: rgba(52, 152, 219, 1);
+    box-shadow: 0 5px 20px rgba(52, 152, 219, 0.4);
+}
+
+/* ===== EXTEND TIME INPUT & BUTTON UNIFORM ===== */
+
+.extend-container {
+    display: flex;
+    gap: 10px; /* space between input and button */
+    margin-bottom: 15px;
+}
+
+input[type="number"] {
+    flex: 1; /* make input fill available space */
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #000;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+input[type="number"]::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+input[type="number"]:focus {
+    border-color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.2);
+}
+
+button.add-time {
+    padding: 12px 20px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    border: 2px solid rgba(241, 196, 15, 1);
+    background: rgba(241, 196, 15, 0.8);
+    color: #ffffff;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button.add-time:hover {
+    background: rgba(241, 196, 15, 1);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(241, 196, 15, 0.4);
+}
+
+/* ===== OVERLAY ===== */
+#overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    z-index: 1098;
+}
+
+#overlay.active {
+    display: block;
+}
+
+/* ===== MENU HEADER ===== */
+.menu-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 30px;
+}
+
+#back-arrow {
+    font-size: 26px;
+    cursor: pointer;
+    user-select: none;
+}
+
+/* ===== STATUS INDICATOR ===== */
+.status-indicator {
+    width: 100%;
+    padding: 12px 20px;
+    background: rgba(255, 71, 87, 0.3);
+    border: 2px solid rgba(255, 71, 87, 0.6);
+    border-radius: 25px;
+    font-size: 16px;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+    outline: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 15px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.status-indicator.status-online {
+    background: rgba(46, 213, 115, 0.3);
+    border-color: rgba(46, 213, 115, 0.6);
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(46, 213, 115, 0.4);
+}
+
+.status-indicator.status-offline {
+    background: rgba(255, 71, 87, 0.3);
+    border-color: rgba(255, 71, 87, 0.6);
+    color: #ffffff;
+}
+
+/* Remove old select styles and add new ones for time input */
+input[type="text"]#input- {
+    width: 100%;
+    padding: 12px 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: 2px solid rgba(255, 255, 255, .3);
+    border-radius: 25px;
+    font-size: 16px;
+    color: #000000;
+    font-weight: 600;
+    outline: none;
+    transition: all 0.3s ease;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+input[type="text"]#input-:focus {
+    border-color: rgba(52, 152, 219, 0.6);
+    background: rgba(255, 255, 255, 0.3);
+    box-shadow: 0 0 15px rgba(52, 152, 219, 0.2);
+}
+
+/* Time display when running */
+.timer.running {
+    color: #2ed573;
+    text-shadow: 0 0 10px rgba(46, 213, 115, 0.5);
+}
+
+.timer.expired {
+    color: #ff4757;
+    animation: blink 1s infinite;
+}
+
+@keyframes blink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+.status-auto-started {
+    background: rgba(46, 213, 115, 0.4);
+    border-color: rgba(46, 213, 115, 0.8);
+    color: #ffffff;
+    box-shadow: 0 0 20px rgba(46, 213, 115, 0.4);
+    animation: pulseAuto 2s infinite;
+}
+
+@keyframes pulseAuto {
+    0%, 100% { box-shadow: 0 0 20px rgba(46, 213, 115, 0.4); }
+    50% { box-shadow: 0 0 30px rgba(46, 213, 115, 0.6); }
+}
+
+.timer.auto-running {
+    color: #2ed573;
+    font-weight: 800;
+    text-shadow: 0 0 10px rgba(46, 213, 115, 0.5);
+}
